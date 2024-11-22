@@ -7,8 +7,8 @@ const { Sequelize } = require('sequelize');
 const config = {
   database: {
     name: 'fellow4U',
-    username: 'your_db4free_username', // Thay thế bằng tên người dùng db4free.net của bạn
-    password: 'your_db4free_password', // Thay thế bằng mật khẩu db4free.net của bạn
+    username: 'nghiatrung', // Thay thế bằng tên người dùng thực tế của bạn
+    password: '1234', // Thay thế bằng mật khẩu thực tế của bạn
     host: 'db4free.net', // Địa chỉ host db4free
     dialect: 'mysql',
     logging: console.log
