@@ -8,7 +8,7 @@ const config = {
   database: {
     name: 'fellow4U',
     username: 'nghiatrung', // Thay thế bằng tên người dùng thực tế của bạn
-    password: '1234', // Thay thế bằng mật khẩu thực tế của bạn
+    password: '0973112230', // Thay thế bằng mật khẩu thực tế của bạn
     host: 'db4free.net', // Địa chỉ host db4free
     dialect: 'mysql',
     logging: console.log
