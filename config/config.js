@@ -7,9 +7,9 @@ const { Sequelize } = require('sequelize');
 const config = {
   database: {
     name: 'fellow4U',
-    username: 'root',
-    password: 'Y649394$y',
-    host: 'localhost',
+    username: 'your_db4free_username', // Thay thế bằng tên người dùng db4free.net của bạn
+    password: 'your_db4free_password', // Thay thế bằng mật khẩu db4free.net của bạn
+    host: 'db4free.net', // Địa chỉ host db4free
     dialect: 'mysql',
     logging: console.log
   },
@@ -17,10 +17,6 @@ const config = {
     port: 5000
   }
 };
-// TODO : Connect to db4free.net ST22B
-// LTDD:....
-
-
 
 // Khởi tạo Express app và Sequelize instance
 const app = express();
@@ -33,6 +29,7 @@ const sequelize = new Sequelize(
   {
     host: config.database.host,
     dialect: config.database.dialect,
+    port: 3306 // Cổng mặc định cho MySQL
   }
 );
 
