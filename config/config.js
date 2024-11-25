@@ -1,45 +1,29 @@
 // Import các thư viện cần thiết
 const express = require('express');
 const bodyParser = require('body-parser');
-const { Sequelize } = require('sequelize');
+const mongoose = require('mongoose');
 
 // Cấu hình chung cho cơ sở dữ liệu và server
 const config = {
   database: {
-    name: 'nghiatrung',
-    username: 'nghiatrung', // Thay thế bằng tên người dùng thực tế của bạn
-    password: '0973112230', // Thay thế bằng mật khẩu thực tế của bạn
-    host: 'db4free.net', // Địa chỉ host db4free
-    dialect: 'mysql',
-    logging: console.log
+    uri: 'mongodb://localhost:27017/fellow4U', // Địa chỉ kết nối MongoDB
   },
   server: {
     port: 5000
   }
 };
 
-// Khởi tạo Express app và Sequelize instance
+// Khởi tạo Express app
 const app = express();
 app.use(bodyParser.json());
 
-const sequelize = new Sequelize(
-  config.database.name,
-  config.database.username,
-  config.database.password,
-  {
-    host: config.database.host,
-    dialect: config.database.dialect,
-    port: 3306 // Cổng mặc định cho MySQL
-  }
-);
-
-// Kiểm tra kết nối cơ sở dữ liệu
-sequelize.authenticate()
+// Kết nối đến MongoDB
+mongoose.connect(config.database.uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log('Kết nối thành công với cơ sở dữ liệu MySQL');
+    console.log('Kết nối thành công với cơ sở dữ liệu MongoDB');
   })
   .catch(err => {
     console.error('Lỗi kết nối:', err);
   });
 
-module.exports = { app, sequelize, config };
+module.exports = { app, mongoose, config };
